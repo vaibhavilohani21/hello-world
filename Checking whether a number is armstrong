@@ -1,0 +1,33 @@
+//checking an Armstrong Number
+import java.util.*;
+class Main{
+    public static int order(int num){
+        int n=0;
+        while(num != 0){
+            n++;
+            num/=10;
+        }
+        return n;
+    }
+    public boolean checkArmstrong(int num){
+        int order =order(num);int sum=0;
+        int temp = num;
+        while(temp!=0){
+            sum+=Math.pow((temp%10),order);
+            temp/=10;
+        }
+        return (num==sum);
+    }
+    
+    public static void main(String args[]){
+        Scanner sc= new Scanner(System.in);
+        Main c = new Main();
+        System.out.println("Enter the number: ");
+        int num = sc.nextInt();
+        if(c.checkArmstrong(num)){
+            System.out.println(num + " is an armstrong number");
+        }else{
+             System.out.println(num + " is not an armstrong number");
+        }
+    }
+}
